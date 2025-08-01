@@ -53,8 +53,8 @@ const car = {
         }
         console.log(this.speed);
     },
-    deaccelerate: function(km) {
-        const newSpeed = this.speed - km;
+    deaccelerate: function(kmh) {
+        const newSpeed = this.speed - kmh;
         if (newSpeed < 0) {
             this.speed = 0;
         } else {
@@ -68,3 +68,20 @@ const car = {
         return this
     }
 }
+
+// 5. На основі об’єкта з завдання №4 розробити функцію-конструктор для масового створення таких об’єктів за переданими параметрами. В якості перевірки створити декілька екземплярів таких об’єктів з різними властивостями
+
+function Car(color, mobel, brand, engineVolume, capacity, speed, maxSpeed) {
+    this.color = color;
+    this.model = mobel;
+    this.brand = brand;
+    this.engineVolume = engineVolume;
+    this.capacity = capacity;
+    this.speed = speed;
+    this.maxSpeed = maxSpeed;
+}
+
+const car1 = new Car('white', 'XC90', 'Volvo', 2.0, 5, 0, 180);
+const car2 = new Car('black', 'F150', 'Ford', 3.5, 5, 0, 200);
+const car3 = new Car('blue', 'RAM', 'Dodge', 4.7, 6, 0, 200);
+const car4 = new Car('red', 'Mustang', 'Ford', 4.7, 2, 0, 250);
