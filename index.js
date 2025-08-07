@@ -16,10 +16,14 @@ const user = {
 
  // 2. Написати функцію, яка приймає об’єкт юзера і виводить вітання типу “Доброго дня, (ім’я_юзера) (прізвище юзера)”
 
- function sayHello(firstName, lastName) {
-    console.log('Доброго дня, ', firstName, lastName);
+ const user1 = {
+    firstName: 'Kate',
+    lastName: 'Miah',
  }
- sayHello('Kate','Miah');
+ function sayHello(user1) {
+    console.log(`Доброго дня, ${user1.firstName} ${user1.lastName}`);
+ }
+ sayHello(user1);
 
  // 3. Написати функцію, яка приймає об’єкт і виводить в консоль всі його властивості (за допомогою циклу for..in)
 
@@ -79,6 +83,29 @@ function Car(color, mobel, brand, engineVolume, capacity, speed, maxSpeed) {
     this.capacity = capacity;
     this.speed = speed;
     this.maxSpeed = maxSpeed;
+    this.accelerate = function(kmh) {
+        const newSpeed = this.speed + kmh;
+        if (newSpeed > this.maxSpeed) {
+            this.speed = this.maxSpeed;
+        } else {
+            this.speed = newSpeed;
+        }
+        console.log(this.speed);
+    };
+    this.deaccelerate = function(kmh) {
+        const newSpeed = this.speed - kmh;
+        if (newSpeed < 0) {
+            this.speed = 0;
+        } else {
+            this.speed = newSpeed;
+        }
+        console.log(this.speed);
+    };
+    this.stop = function() {
+        this.speed = 0;
+        console.log(this.speed);
+        return this
+    }
 }
 
 const car1 = new Car('white', 'XC90', 'Volvo', 2.0, 5, 0, 180);
